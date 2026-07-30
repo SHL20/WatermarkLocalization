@@ -4,8 +4,8 @@ This repository contains the simulation and real-LLM experiment code for **Optim
 
 The repository currently provides:
 
-- simulation notebooks for the phase-transition and heatmap experiments at \(\alpha=0.5\);
-- the complete \(T=1\) real-LLM pipeline, from Gumbel-max watermarked text generation through editing, localization evaluation, figures, tables, and runtime summaries.
+- simulation notebooks for the phase-transition and heatmap experiments at $\alpha=0.5$;
+- the complete $T=1$ real-LLM pipeline, from Gumbel-max watermarked text generation through editing, localization evaluation, figures, tables, and runtime summaries.
 
 ## Repository structure
 
@@ -32,7 +32,7 @@ The repository currently provides:
 
 ## Simulations
 
-The `Simulations/` folder contains two standalone notebooks configured for the representative case \(\alpha=0.5\).
+The `Simulations/` folder contains two standalone notebooks configured for the representative case $\alpha=0.5$.
 
 ### Phase-transition simulation
 
@@ -54,7 +54,7 @@ outputs_discovery_v3/phase_transition_alpha0p5.pdf
 
 - sequence length `n_heat = 10000`;
 - Monte Carlo replication count `B_heat = 500`;
-- a \(20\times20\) grid over the displayed \((p,q)\) region;
+- a $20\times20$ grid over the displayed $(p,q)$ region;
 - automatic CUDA use when a GPU is available, with CPU fallback.
 
 The notebook saves
@@ -63,7 +63,7 @@ The notebook saves
 outputs_discovery_v3/heatmap_alpha0p5.pdf
 ```
 
-### Other values of \(\alpha\)
+### Other values of $\alpha$
 
 Both notebooks expose
 
@@ -71,9 +71,9 @@ Both notebooks expose
 alpha_vocab = 0.5
 ```
 
-as a configuration value. Changing this value adapts the experiment to another vocabulary-growth exponent. In the paper, the additional phase-transition cases use \(\alpha\in\{0,0.25,0.75\}\), and the additional displayed heatmaps use \(\alpha\in\{0.25,0.75\}\). The \(\alpha=0\) heatmap uses a different plotting grid and is not included among the displayed heatmaps.
+as a configuration value. Changing this value adapts the experiment to another vocabulary-growth exponent. In the paper, the additional phase-transition cases use $\alpha\in\{0,0.25,0.75\}$, and the additional displayed heatmaps use $\alpha\in\{0.25,0.75\}$. The $\alpha=0$ heatmap uses a different plotting grid and is not included among the displayed heatmaps.
 
-## Real-LLM experiments at \(T=1\)
+## Real-LLM experiments at $T=1$
 
 The `SPOT_real_llm_T1/` folder contains a file-based, restartable pipeline. Each notebook reads the ZIP output from the preceding stage and writes a new ZIP for the next stage.
 
@@ -85,7 +85,7 @@ The main experimental configuration is:
 - prompt length: 50 tokens;
 - continuation length: 400 tokens;
 - watermark context width: 5;
-- generation temperature: \(T=1\);
+- generation temperature: $T=1$;
 - watermark: Gumbel-max with repeated-context masking.
 
 ### Pipeline
@@ -93,7 +93,7 @@ The main experimental configuration is:
 1. `01_generate_pre_edit_T1.ipynb` generates the pre-edit watermarked continuations.
 2. Notebooks 02–04 construct random, adversarial, and roundtrip-translation edits, decode and re-tokenize the edited text, recompute verifier pivots, and construct the single token-level ground-truth label `GT`.
 3. Notebooks 05–10 evaluate SPOT and AOL for the three edit families.
-4. `11_summarize_T1_results.ipynb` combines the evaluation outputs, generates the paper-style Figure 8, constructs the \(T=1\) entries of Tables 1 and 2, and reports runtime summaries.
+4. `11_summarize_T1_results.ipynb` combines the evaluation outputs, generates the paper-style Figure 8, constructs the $T=1$ entries of Tables 1 and 2, and reports runtime summaries.
 
 See [`SPOT_real_llm_T1/README.md`](SPOT_real_llm_T1/README.md) for the full input/output flow and detailed evaluation conventions.
 
@@ -106,7 +106,7 @@ The public SPOT evaluation notebooks contain:
 
 AOL is evaluated using the same saved post-edit pivots and ground-truth labels.
 
-For target empirical FPR \(0.05\), every method first searches the bin \((0.04,0.05]\). If that bin is empty, the evaluation moves to the nearest lower nonempty bin. IoU-optimal and TPR-optimal parameters are selected separately within the chosen bin.
+For target empirical FPR $0.05$, every method first searches the bin $(0.04,0.05]$. If that bin is empty, the evaluation moves to the nearest lower nonempty bin. IoU-optimal and TPR-optimal parameters are selected separately within the chosen bin.
 
 ### Final outputs
 
