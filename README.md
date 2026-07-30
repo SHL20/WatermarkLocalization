@@ -130,7 +130,7 @@ The runtime outputs distinguish:
 - localization-method inference time;
 - total verification time, equal to pivot recomputation plus inference.
 
-Only the \(T=1\) pipeline reports the detailed runtime benchmark.
+Only the $T=1$ pipeline reports the detailed runtime benchmark.
 
 ## Running the notebooks
 
