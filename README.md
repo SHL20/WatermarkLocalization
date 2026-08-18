@@ -2,6 +2,8 @@
 
 This repository contains the simulation and real-LLM experiment code for **Optimal Watermark Localization in Mixed-Source Large Language Model Texts**. The proposed method is **SPOT** (Scanning Pivots Over Thresholds).
 
+**Paper:** [arXiv:2608.14906](https://arxiv.org/abs/2608.14906)
+
 The repository currently provides:
 
 - simulation notebooks for the phase-transition and heatmap experiments at $\alpha=0.5$;
